@@ -1,35 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>feedback</title>
-</head>
+    <head>
+        <meta charset="utf-8">
+        <title>feedback.html</title>
+    </head>
 
 <body>
-<form>
-<p>姓名：
-<input type="text" name="userName" size="20">
+    <form>
+        <p>姓名：<input type="text" name="userName" size="20"></p>
+        <p>電子郵件：<input type="email" name="userEmail" size="30"></p>
+        <p>問題描述：<br>
+            <textarea name="userMessage" rows="5" cols="40"></textarea>
+        </p>
+        <p>問題分類：<br>
+            <select name="userType">
+            <option value="login">登入問題</option>
+            <option value="system">系統錯誤</option>
+            <option value="feedback">意見回饋</option>
+            <option value="other">其他</option>
+        </select>
 </p>
-
-<p>電子郵件：
-<input type="email" name="userEmail" size="30">
-</p>
-
-<p>問題描述：<br>
-<textarea name="userMessage" rows="5" cols="40"></textarea>
-</p>
-
-<p>問題分類：
-<select name="userType">
-<option value="login">登入問題</option>
-<option value="system">系統錯誤</option>
-<option value="feedback">意見回饋</option>
-<option value="other">其他</option>
-</select>
-</p>
-
-<input type="submit" value="提交">
-<input type="reset" value="重設">
-</form>
+         <input type="submit" value="提交">
+         <input type="reset" value="重設">
+    </form>
 </body>
 </html>
