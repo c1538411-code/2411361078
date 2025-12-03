@@ -3,79 +3,59 @@
 <head>
     <meta charset="utf-8">
     <style>
+        img {
+            display: inline;
+            width: 150px;
+            position: absolute;
+            top: 20px;
+            left: 300px;
+        }
+
         p {
             display: block;
-            font-size: 15px;
-            line-height: 2;
+            width: 300px;
+            white-space: pre-line;
         }
+
+        /* 新增：relative 的小註解 */
         span {
             display: inline;
         }
-
-        /* 1. static：預設定位，照正常文件流程排 */
-        .note-static {
-            position: static;
-            font-size: 12px;
-            color: red;
-        }
-
-        /* 2. relative：相對原本位置微調 */
-        .note-relative {
-            position: relative;
-            top: 5px;
+        .note {
+            position: relative;   /* 相對定位 */
+            top: 5px;             /* 往下移 5px */
             font-size: 12px;
             color: blue;
-        }
-
-        /* 3. absolute：相對最近的「有定位」父元素 */
-        .box {
-            position: relative;      /* 給 absolute 用來對齊的外框 */
-            border: 1px solid #999;
-            padding: 10px;
-            margin-top: 10px;
-        }
-        .note-absolute {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            font-size: 12px;
-            color: green;
-        }
-
-        /* 4. fixed：固定在視窗位置 */
-        .note-fixed {
-            position: fixed;
-            right: 10px;
-            bottom: 10px;
-            font-size: 12px;
-            color: purple;
-            background-color: #fff;
         }
     </style>
 </head>
 <body>
+    <img src="bg5.jpg">
 
-    <!-- static 範例 -->
+    <h1>小星星</h1>
     <p>
-        青山橫北郭，白水繞東城。此地一為別，孤蓬萬里征。
-        <span class="note-static">注釋：「郭」意指城外（static）</span>
+一閃一閃亮晶晶
+滿天都是小星星<span class="note">（註：小星星＝天上的星星）</span>
+掛在天上放光明
+好像許多小眼睛
+一閃一閃亮晶晶
+滿天都是小星星
     </p>
 
-    <!-- relative 範例（就是你原本那個） -->
+    <h1>造飛機</h1>
     <p>
-        浮雲游子意，落日故人情。揮手自茲去，蕭蕭班馬鳴。
-        <span class="note-relative">注釋：「茲」意指現在（relative，下移 5px）</span>
+造飛機
+造飛機
+來到青草地
+蹲下來
+蹲下來
+我做推進器
+蹲下去
+蹲下去
+我做機艙翼
+飛呀飛
+飛呀飛
+飛到自雲裡
     </p>
-
-    <!-- absolute 範例 -->
-    <div class="box">
-        <p>這一段文字放在有邊框的區塊裡，註解會固定在右上角。</p>
-        <span class="note-absolute">我是 absolute，定位在這個框的右上角</span>
-    </div>
-
-    <!-- fixed 範例 -->
-    <p>往下捲動頁面時，右下角會一直看到 fixed 的小註解。</p>
-    <span class="note-fixed">我是 fixed，固定在視窗右下角</span>
-
 </body>
 </html>
