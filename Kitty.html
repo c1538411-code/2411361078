@@ -2,10 +2,10 @@
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <title>Kitty 娃娃小舖</title>
+    <title>婉瑜的 Kitty 小舖</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /* 全站基本設定 */
+        /* ================== 基本設定 ================== */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -29,7 +29,7 @@
             display: block;
         }
 
-        /* 頁首與導覽列 */
+        /* ================== 頁首 / 導覽 ================== */
         header {
             position: sticky;
             top: 0;
@@ -71,11 +71,11 @@
         nav ul {
             list-style: none;
             display: flex;
-            gap: 18px;
+            gap: 16px;
+            font-size: 14px;
         }
 
         nav a {
-            font-size: 15px;
             padding: 6px 10px;
             border-radius: 999px;
             transition: background 0.2s, color 0.2s;
@@ -86,10 +86,10 @@
             color: #ff4b8b;
         }
 
-        /* 橫幅區 (Hero) */
+        /* ================== Hero 區 ================== */
         .hero {
             background: linear-gradient(135deg, #ffe6f2, #fff5d9);
-            padding: 60px 20px 70px;
+            padding: 50px 20px 60px;
         }
 
         .hero-inner {
@@ -102,25 +102,25 @@
         }
 
         .hero-text h1 {
-            font-size: 34px;
+            font-size: 32px;
             color: #ff4b8b;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .hero-text p {
-            font-size: 16px;
-            margin-bottom: 22px;
+            font-size: 15px;
+            margin-bottom: 18px;
         }
 
         .hero-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .tag {
-            font-size: 13px;
+            font-size: 12px;
             padding: 4px 10px;
             border-radius: 999px;
             background: #ffffffaa;
@@ -128,25 +128,16 @@
             color: #ff4b8b;
         }
 
-        .btn-group {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary, .btn-outline {
+        .btn-primary {
             padding: 10px 20px;
             border-radius: 999px;
-            font-size: 14px;
             border: none;
-            cursor: pointer;
-            transition: transform 0.08s ease-out, box-shadow 0.08s, background 0.2s, color 0.2s;
-        }
-
-        .btn-primary {
             background: #ff4b8b;
             color: #fff;
+            font-size: 14px;
+            cursor: pointer;
             box-shadow: 0 4px 10px rgba(255, 75, 139, 0.25);
+            transition: transform 0.1s, box-shadow 0.1s;
         }
 
         .btn-primary:hover {
@@ -154,45 +145,25 @@
             box-shadow: 0 6px 14px rgba(255, 75, 139, 0.32);
         }
 
-        .btn-outline {
-            background: #fff;
-            color: #ff4b8b;
-            border: 1px solid #ff4b8b;
-        }
-
-        .btn-outline:hover {
-            background: #ff4b8b;
-            color: #fff;
-        }
-
         .hero-illustration {
             background: #fff;
             border-radius: 24px;
             padding: 20px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-            position: relative;
         }
 
         .hero-illustration-inner {
             border-radius: 18px;
             background: linear-gradient(135deg, #ffeaf7, #fff);
-            height: 230px;
+            height: 220px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 13px;
+            color: #ff8fb4;
         }
 
-        .hero-illustration-inner::before {
-            content: "Kitty 娃娃陳列圖";
-            position: absolute;
-            bottom: 12px;
-            right: 20px;
-            font-size: 11px;
-            color: #ff7fa7;
-            opacity: 0.8;
-        }
-
-        /* 主要內容區共用 */
+        /* ================== 主要內容 ================== */
         main {
             max-width: 1080px;
             margin: 0 auto;
@@ -200,72 +171,96 @@
         }
 
         section {
-            margin-bottom: 52px;
+            margin-bottom: 48px;
         }
 
         section h2 {
-            font-size: 26px;
+            font-size: 24px;
             margin-bottom: 8px;
             color: #ff4b8b;
         }
 
-        section p.section-intro {
-            font-size: 14px;
+        .section-intro {
+            font-size: 13px;
             color: #777;
-            margin-bottom: 22px;
+            margin-bottom: 18px;
         }
 
-        /* 商品列表區 */
+        /* ===== 商品區：排序列 + 格狀商品卡 ===== */
+        .product-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .product-count {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .sort-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+        }
+
+        select {
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid #ffb7d7;
+            background: #fff;
+            font-size: 13px;
+            font-family: inherit;
+        }
+
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
         }
 
         .product-card {
             background: #fff;
-            border-radius: 18px;
-            padding: 14px 14px 16px;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+            border-radius: 16px;
+            padding: 12px 12px 14px;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.05);
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            transition: transform 0.12s ease-out, box-shadow 0.12s;
+            gap: 6px;
+            transition: transform 0.12s, box-shadow 0.12s;
         }
 
         .product-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
+            box-shadow: 0 9px 18px rgba(0,0,0,0.08);
         }
 
         .product-img-wrapper {
-            border-radius: 14px;
+            border-radius: 12px;
             overflow: hidden;
             background: #ffeaf3;
-            height: 180px;
+            height: 150px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #ffb0cc;
-            font-size: 13px;
-        }
-
-        .product-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
+            font-size: 12px;
+            color: #ff9ec2;
         }
 
         .product-title {
+            font-size: 14px;
             font-weight: 600;
-            font-size: 15px;
         }
 
         .product-meta {
             display: flex;
             justify-content: space-between;
+            font-size: 12px;
             align-items: baseline;
-            font-size: 13px;
         }
 
         .product-price {
@@ -281,67 +276,54 @@
             color: #ff4b8b;
         }
 
-        .product-actions {
-            margin-top: 6px;
+        /* ===== 分頁按鈕 ===== */
+        .pagination {
+            margin-top: 20px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            flex-wrap: wrap;
             gap: 8px;
+            font-size: 13px;
         }
 
-        .btn-small {
-            flex: 1;
-            padding: 6px 0;
-            font-size: 12px;
+        .page-btn {
+            min-width: 32px;
+            padding: 6px 10px;
             border-radius: 999px;
-            border: none;
+            border: 1px solid #ffb7d7;
+            background: #fff;
             cursor: pointer;
             transition: background 0.2s, color 0.2s, transform 0.08s;
         }
 
-        .btn-cart {
+        .page-btn:hover {
+            background: #ffe5f2;
+        }
+
+        .page-btn.active {
             background: #ff4b8b;
             color: #fff;
-        }
-
-        .btn-cart:hover {
+            border-color: #ff4b8b;
             transform: translateY(-1px);
-            background: #ff336f;
         }
 
-        .btn-fav {
-            background: #fff5fa;
-            color: #ff4b8b;
-            border: 1px solid #ffb5d5;
+        .page-btn[disabled] {
+            opacity: 0.4;
+            cursor: default;
+            transform: none;
         }
 
-        .btn-fav:hover {
-            background: #ffebf7;
-        }
-
-        /* 關於我 / 關於商店 */
-        .about-wrapper {
-            display: grid;
-            grid-template-columns: 1.1fr 1fr;
-            gap: 26px;
-            align-items: start;
-        }
-
-        .about-box {
+        /* ===== 關於 / 聯絡 簡版 ===== */
+        .about-box, .contact-box {
             background: #fff;
-            border-radius: 18px;
-            padding: 20px;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.04);
+            border-radius: 16px;
+            padding: 18px;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.04);
             font-size: 14px;
         }
 
-        .about-box h3 {
-            font-size: 16px;
-            margin-bottom: 8px;
-            color: #ff4b8b;
-        }
-
         .about-list {
-            margin-left: 16px;
+            margin-left: 18px;
             margin-top: 6px;
         }
 
@@ -349,76 +331,31 @@
             margin-bottom: 4px;
         }
 
-        /* 聯絡表單 */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1.1fr 1fr;
-            gap: 26px;
-        }
-
-        form {
-            background: #fff;
-            padding: 20px;
-            border-radius: 18px;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.04);
-            font-size: 14px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 4px;
+        .contact-box p {
             font-size: 13px;
         }
 
-        input[type="text"],
-        input[type="email"],
-        textarea {
-            width: 100%;
-            padding: 8px 10px;
-            border-radius: 10px;
-            border: 1px solid #ffc1de;
-            margin-bottom: 10px;
-            font-family: inherit;
-            font-size: 14px;
-        }
-
-        textarea {
-            min-height: 90px;
-            resize: vertical;
-        }
-
-        .contact-note {
-            font-size: 13px;
-            color: #777;
-        }
-
-        /* 頁腳 */
         footer {
             background: #ffe6f4;
-            padding: 16px 20px;
+            padding: 14px 20px;
             text-align: center;
             font-size: 12px;
             color: #777;
         }
 
-        /* RWD */
+        /* ===== RWD ===== */
         @media (max-width: 768px) {
-            .hero-inner,
-            .about-wrapper,
-            .contact-grid {
+            .hero-inner {
                 grid-template-columns: 1fr;
-            }
-
-            .hero {
-                padding-top: 40px;
-            }
-
-            .hero-text h1 {
-                font-size: 28px;
             }
 
             nav ul {
                 gap: 10px;
+                font-size: 13px;
+            }
+
+            .product-toolbar {
+                align-items: flex-start;
             }
         }
     </style>
@@ -430,45 +367,40 @@
         <div class="nav-container">
             <div class="logo">
                 <div class="logo-icon">♡</div>
-                <span>Kitty 娃娃小舖</span>
+                <span>婉瑜的 Kitty 小舖</span>
             </div>
             <nav>
                 <ul>
-                    <li><a href="#home">首頁</a></li>
-                    <li><a href="#products">娃娃介紹</a></li>
-                    <li><a href="#about">關於我</a></li>
+                    <li><a href="#products">全部 Kitty</a></li>
+                    <li><a href="#about">關於小舖</a></li>
                     <li><a href="#contact">聯絡我</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- 橫幅 -->
-    <section id="home" class="hero">
+    <!-- Hero 區 -->
+    <section class="hero">
         <div class="hero-inner">
             <div class="hero-text">
-                <h1>把最可愛的 Kitty 娃娃帶回家</h1>
+                <h1>婉瑜的 Kitty 小舖</h1>
                 <p>
-                    這裡收藏了我最喜歡的 Kitty 娃娃：限量版、節慶版、睡衣版、上班族版⋯⋯  
-                    網頁設計課的期末作業，也順便變成我的小小夢想商店。
+                    這裡整理了我收藏的 Kitty 娃娃，一共 100 隻。
+                    為了讓老師看得舒服，也讓自己當老闆過過癮：一次顯示 20 隻，還可以依照價格排序。
                 </p>
-
                 <div class="hero-tags">
-                    <span class="tag">正版授權收藏</span>
-                    <span class="tag">二手近全新</span>
-                    <span class="tag">學生小資價</span>
+                    <span class="tag">一頁 20 隻</span>
+                    <span class="tag">共 5 頁</span>
+                    <span class="tag">可依價格排序</span>
                 </div>
-
-                <div class="btn-group">
-                    <button class="btn-primary" onclick="location.href='#products'">逛逛所有娃娃</button>
-                    <button class="btn-outline" onclick="location.href='#contact'">想詢問價格</button>
-                </div>
+                <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+                    逛逛所有 Kitty 娃娃
+                </button>
             </div>
 
             <div class="hero-illustration">
                 <div class="hero-illustration-inner">
-                    <!-- 這裡以後可以換成你自己的圖片 -->
-                    <span>放一張「Kitty 娃娃合照」的圖片</span>
+                    這裡以後可以放一張<br>「Kitty 娃娃合照」的圖片
                 </div>
             </div>
         </div>
@@ -477,164 +409,169 @@
     <!-- 主要內容 -->
     <main>
 
-        <!-- 商品區 -->
+        <!-- 商品區：排序 + 分頁 -->
         <section id="products">
-            <h2>娃娃介紹</h2>
+            <h2>全部 Kitty 娃娃</h2>
             <p class="section-intro">
-                以下是目前在架上的 Kitty 娃娃示意，你可以依照自己的收藏更改名稱、價格與照片。
+                共 100 個 Kitty，示範「一頁 20 個」＋「可以依價格排序」。<br>
+                之後你可以把每一隻改成自己真正收藏的娃娃名稱與價格。
             </p>
 
-            <div class="product-grid">
-                <!-- 商品 1 -->
-                <article class="product-card">
-                    <div class="product-img-wrapper">
-                        <!-- 之後改成 <img src="images/kitty1.jpg" alt="粉紅吊帶褲 Kitty 娃娃"> -->
-                        粉紅吊帶褲 Kitty 娃娃示意圖
-                    </div>
-                    <div class="product-info">
-                        <div class="product-title">粉紅吊帶褲 Kitty</div>
-                        <div class="product-meta">
-                            <span class="product-price">$ 520</span>
-                            <span class="product-tag">人氣 No.1</span>
-                        </div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn-small btn-cart">加入購物車</button>
-                        <button class="btn-small btn-fav">加入收藏♡</button>
-                    </div>
-                </article>
+            <div class="product-toolbar">
+                <div class="product-count" id="productCountText">
+                    共 0 個商品 · 第 1 / 5 頁
+                </div>
+                <div class="sort-wrapper">
+                    <span>排序方式：</span>
+                    <select id="sortSelect">
+                        <option value="default">預設順序</option>
+                        <option value="price-asc">價格：低 → 高</option>
+                        <option value="price-desc">價格：高 → 低</option>
+                    </select>
+                </div>
+            </div>
 
-                <!-- 商品 2 -->
-                <article class="product-card">
-                    <div class="product-img-wrapper">
-                        冬季圍巾 Kitty 娃娃示意圖
-                    </div>
-                    <div class="product-info">
-                        <div class="product-title">冬季圍巾 Kitty</div>
-                        <div class="product-meta">
-                            <span class="product-price">$ 680</span>
-                            <span class="product-tag">冬季限定</span>
-                        </div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn-small btn-cart">加入購物車</button>
-                        <button class="btn-small btn-fav">加入收藏♡</button>
-                    </div>
-                </article>
+            <div class="product-grid" id="productGrid">
+                <!-- JS 會把商品卡片插進來 -->
+            </div>
 
-                <!-- 商品 3 -->
-                <article class="product-card">
-                    <div class="product-img-wrapper">
-                        睡衣抱枕 Kitty 娃娃示意圖
-                    </div>
-                    <div class="product-info">
-                        <div class="product-title">睡衣抱枕 Kitty</div>
-                        <div class="product-meta">
-                            <span class="product-price">$ 780</span>
-                            <span class="product-tag">超軟 Q</span>
-                        </div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn-small btn-cart">加入購物車</button>
-                        <button class="btn-small btn-fav">加入收藏♡</button>
-                    </div>
-                </article>
-
-                <!-- 商品 4 -->
-                <article class="product-card">
-                    <div class="product-img-wrapper">
-                        上班族 Kitty 娃娃示意圖
-                    </div>
-                    <div class="product-info">
-                        <div class="product-title">上班族 Kitty</div>
-                        <div class="product-meta">
-                            <span class="product-price">$ 630</span>
-                            <span class="product-tag">通勤好夥伴</span>
-                        </div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn-small btn-cart">加入購物車</button>
-                        <button class="btn-small btn-fav">加入收藏♡</button>
-                    </div>
-                </article>
+            <div class="pagination" id="pagination">
+                <!-- JS 產生分頁按鈕 -->
             </div>
         </section>
 
-        <!-- 關於我 -->
+        <!-- 關於區塊（簡版） -->
         <section id="about">
-            <h2>關於 Kitty 娃娃小舖</h2>
-            <p class="section-intro">
-                這一頁除了當作商品介紹，也可以讓老師看到：你有加入自我介紹、網站目的、以及對前端設計的想法。
-            </p>
-
-            <div class="about-wrapper">
-                <div class="about-box">
-                    <h3>為什麼想開這個網站？</h3>
-                    <p>
-                        從國小開始，我就很喜歡各種 Kitty 相關的小東西，鉛筆盒、吊飾、娃娃到抱枕都收藏。
-                        讀大學之後，空間變小、預算也有限，所以決定把部分收藏整理出來，讓下一位喜歡 Kitty 的人帶回家。
-                    </p>
-                    <ul class="about-list">
-                        <li>每一隻娃娃都會先清洗、梳理毛髮</li>
-                        <li>拍攝實際照片，標註尺寸與狀況</li>
-                        <li>以學生可以負擔的價格轉售</li>
-                    </ul>
-                </div>
-
-                <div class="about-box">
-                    <h3>這個作業用了哪些設計重點？</h3>
-                    <ul class="about-list">
-                        <li>整體配色：粉紅、奶油色為主，符合 Kitty 的可愛風格</li>
-                        <li>版面：使用一頁式設計，搭配導覽列錨點連結</li>
-                        <li>商品卡片：使用 CSS Grid 排列，RWD 手機會自動改一欄</li>
-                        <li>按鈕與 hover 效果：讓網站有互動感，看起來比較有「成品感」</li>
-                    </ul>
-                </div>
+            <h2>關於小舖</h2>
+            <div class="about-box">
+                <p>
+                    「婉瑜的 Kitty 小舖」原本只是網頁設計課的作業主題，
+                    想說既然要做網站，不如直接拿自己最喜歡的東西：Kitty 娃娃。
+                </p>
+                <ul class="about-list">
+                    <li>主題：Kitty 娃娃收藏展示＆模擬販售頁面</li>
+                    <li>版面：一頁式網站，商品區有排序與分頁</li>
+                    <li>技術：純 HTML + CSS + JavaScript（不用框架）</li>
+                    <li>特色：可以一眼看到「一頁 20 個、共五頁」的作業需求有做到</li>
+                </ul>
             </div>
         </section>
 
-        <!-- 聯絡我 -->
+        <!-- 聯絡區（示意） -->
         <section id="contact">
             <h2>聯絡我</h2>
-            <p class="section-intro">
-                如果你對某一隻 Kitty 有興趣、想看實拍照，或是老師想留言給我 😂，可以用下面的表單示意。
-            </p>
-
-            <div class="contact-grid">
-                <form>
-                    <label for="name">您的名稱</label>
-                    <input type="text" id="name" placeholder="例：小明 / 老師">
-
-                    <label for="email">聯絡 Email</label>
-                    <input type="email" id="email" placeholder="example@mail.com">
-
-                    <label for="message">想對我說的話</label>
-                    <textarea id="message" placeholder="想詢問哪一隻 Kitty、或其他合作問題"></textarea>
-
-                    <button type="submit" class="btn-primary">送出訊息（課堂示意）</button>
-                </form>
-
-                <div class="about-box">
-                    <h3>其它聯絡方式</h3>
-                    <p class="contact-note">
-                        ※ 實際販售時可以放：IG 帳號、蝦皮賣場連結、或 Line ID。  
-                        上課用的版本你也可以只寫「此為作業示意，不是真實賣場」。
-                    </p>
-                    <ul class="about-list">
-                        <li>Instagram：@my_kitty_collection</li>
-                        <li>E-mail：kittyshop@example.com</li>
-                        <li>出貨地區：台中市</li>
-                    </ul>
-                </div>
+            <div class="contact-box">
+                <p>
+                    如果你是老師：<br>
+                    歡迎在作業回饋裡給我建議，哪裡可以寫得更好、排版更完整。<br><br>
+                    如果你是路過的朋友：<br>
+                    這個網站目前主要是作業示意，真的要賣 Kitty 的話，之後可以再加上購物車、結帳等功能。
+                </p>
             </div>
         </section>
 
     </main>
 
-    <!-- 頁腳 -->
     <footer>
-        此網站為網頁設計課程作業示意，Kitty 角色版權為原公司所有。
+        本網站為「網頁設計課程」作業示意，Kitty 角色版權為原公司所有。
     </footer>
 
-</body>
-</html>
+    <!-- ================== JS：商品資料 + 排序 + 分頁 ================== -->
+    <script>
+        // 一頁顯示幾個 Kitty & 總頁數
+        const ITEMS_PER_PAGE = 20;
+        const TOTAL_ITEMS = 100; // 共 100 隻，剛好 5 頁（100 / 20）
+
+        const productGrid = document.getElementById("productGrid");
+        const pagination = document.getElementById("pagination");
+        const sortSelect = document.getElementById("sortSelect");
+        const productCountText = document.getElementById("productCountText");
+
+        let currentPage = 1;
+        let currentSort = "default";
+
+        // 建立假資料：100 個 Kitty
+        // 之後你可以改成自己真實的娃娃名稱 / 價格
+        let kittyData = Array.from({ length: TOTAL_ITEMS }, function(_, index) {
+            const id = index + 1;
+
+            // 給個好記的假價格：介於 200 ~ 1190 之間
+            const price = 200 + (index % 20) * 50;
+
+            // 分類用來顯示小標籤
+            let tag;
+            if (id <= 20) {
+                tag = "經典款";
+            } else if (id <= 40) {
+                tag = "季節限定";
+            } else if (id <= 60) {
+                tag = "睡衣系列";
+            } else if (id <= 80) {
+                tag = "工作系列";
+            } else {
+                tag = "收藏家推薦";
+            }
+
+            return {
+                id: id,
+                name: "Kitty 娃娃 #" + id,
+                price: price,
+                tag: tag,
+                // 為了可以恢復「預設順序」
+                originalIndex: index
+            };
+        });
+
+        // 依現在的排序方式，回傳新的陣列
+        function getSortedData() {
+            const dataCopy = kittyData.slice(); // 複製一份
+
+            if (currentSort === "price-asc") {
+                dataCopy.sort(function(a, b) {
+                    return a.price - b.price; // 小 → 大
+                });
+            } else if (currentSort === "price-desc") {
+                dataCopy.sort(function(a, b) {
+                    return b.price - a.price; // 大 → 小
+                });
+            } else {
+                // 回到原本順序（依 originalIndex 排）
+                dataCopy.sort(function(a, b) {
+                    return a.originalIndex - b.originalIndex;
+                });
+            }
+
+            return dataCopy;
+        }
+
+        // 渲染商品卡片（依目前頁數 ＆ 排序）
+        function renderProducts() {
+            const sorted = getSortedData();
+
+            const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+            const endIndex = startIndex + ITEMS_PER_PAGE;
+            const itemsThisPage = sorted.slice(startIndex, endIndex);
+
+            // 清空舊的
+            productGrid.innerHTML = "";
+
+            itemsThisPage.forEach(function(item) {
+                const card = document.createElement("article");
+                card.className = "product-card";
+
+                card.innerHTML = `
+                    <div class="product-img-wrapper">
+                        <!-- 之後可以改成 <img src="images/kitty${item.id}.jpg" alt="${item.name}"> -->
+                        ${item.name} 圖片示意
+                    </div>
+                    <div class="product-title">${item.name}</div>
+                    <div class="product-meta">
+                        <span class="product-price">$ ${item.price}</span>
+                        <span class="product-tag">${item.tag}</span>
+                    </div>
+                `;
+
+                productGrid.appendChild(card);
+            });
+
+            const totalPages = Math.ceil(TOTAL
