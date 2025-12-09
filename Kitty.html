@@ -2,576 +2,97 @@
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <title>婉瑜的 Kitty 小舖</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>方框打勾示範</title>
     <style>
-        /* ================== 基本設定 ================== */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
         body {
             font-family: "微軟正黑體", system-ui, sans-serif;
-            background: #fff7fb;
-            color: #333;
-            line-height: 1.6;
+            background-color: #faedcd;   /* 淡米色背景，接近你的截圖 */
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        /* ================== 頁首 / 導覽 ================== */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-            backdrop-filter: blur(6px);
-        }
-
-        .nav-container {
-            max-width: 1080px;
-            margin: 0 auto;
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 700;
-            font-size: 20px;
-            color: #ff4b8b;
-        }
-
-        .logo-icon {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, #ffe0f0, #ff9fbe);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 16px;
-            font-size: 14px;
-        }
-
-        nav a {
-            padding: 6px 10px;
-            border-radius: 999px;
-            transition: background 0.2s, color 0.2s;
-        }
-
-        nav a:hover {
-            background: #ffebf4;
-            color: #ff4b8b;
-        }
-
-        /* ================== Hero 區 ================== */
-        .hero {
-            background: linear-gradient(135deg, #ffe6f2, #fff5d9);
-            padding: 50px 20px 60px;
-        }
-
-        .hero-inner {
-            max-width: 1080px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .hero-text h1 {
-            font-size: 32px;
-            color: #ff4b8b;
-            margin-bottom: 10px;
-        }
-
-        .hero-text p {
-            font-size: 15px;
-            margin-bottom: 18px;
-        }
-
-        .hero-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 20px;
-        }
-
-        .tag {
-            font-size: 12px;
-            padding: 4px 10px;
-            border-radius: 999px;
-            background: #ffffffaa;
-            border: 1px solid #ffc2dd;
-            color: #ff4b8b;
-        }
-
-        .btn-primary {
-            padding: 10px 20px;
-            border-radius: 999px;
-            border: none;
-            background: #ff4b8b;
-            color: #fff;
-            font-size: 14px;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(255, 75, 139, 0.25);
-            transition: transform 0.1s, box-shadow 0.1s;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 14px rgba(255, 75, 139, 0.32);
-        }
-
-        .hero-illustration {
-            background: #fff;
-            border-radius: 24px;
-            padding: 20px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-        }
-
-        .hero-illustration-inner {
-            border-radius: 18px;
-            background: linear-gradient(135deg, #ffeaf7, #fff);
-            height: 220px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 13px;
-            color: #ff8fb4;
-        }
-
-        /* ================== 主要內容 ================== */
-        main {
-            max-width: 1080px;
-            margin: 0 auto;
-            padding: 40px 20px 60px;
-        }
-
-        section {
-            margin-bottom: 48px;
-        }
-
-        section h2 {
-            font-size: 24px;
-            margin-bottom: 8px;
-            color: #ff4b8b;
-        }
-
-        .section-intro {
-            font-size: 13px;
-            color: #777;
-            margin-bottom: 18px;
-        }
-
-        /* ===== 商品區：排序列 + 格狀商品卡 ===== */
-        .product-toolbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 16px;
-            flex-wrap: wrap;
-        }
-
-        .product-count {
-            font-size: 13px;
-            color: #666;
-        }
-
-        .sort-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 13px;
-        }
-
-        select {
-            padding: 6px 10px;
-            border-radius: 999px;
-            border: 1px solid #ffb7d7;
-            background: #fff;
-            font-size: 13px;
-            font-family: inherit;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-        }
-
-        .product-card {
-            background: #fff;
-            border-radius: 16px;
-            padding: 12px 12px 14px;
-            box-shadow: 0 5px 12px rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            transition: transform 0.12s, box-shadow 0.12s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 9px 18px rgba(0,0,0,0.08);
-        }
-
-        .product-img-wrapper {
-            border-radius: 12px;
-            overflow: hidden;
-            background: #ffeaf3;
-            height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            color: #ff9ec2;
-        }
-
-        .product-title {
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .product-meta {
-            display: flex;
-            justify-content: space-between;
-            font-size: 12px;
-            align-items: baseline;
-        }
-
-        .product-price {
-            color: #ff4b8b;
-            font-weight: 700;
-        }
-
-        .product-tag {
-            font-size: 11px;
-            padding: 2px 8px;
-            border-radius: 999px;
-            background: #fff0f6;
-            color: #ff4b8b;
-        }
-
-        /* ===== 分頁按鈕 ===== */
-        .pagination {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 8px;
-            font-size: 13px;
-        }
-
-        .page-btn {
-            min-width: 32px;
-            padding: 6px 10px;
-            border-radius: 999px;
-            border: 1px solid #ffb7d7;
-            background: #fff;
-            cursor: pointer;
-            transition: background 0.2s, color 0.2s, transform 0.08s;
-        }
-
-        .page-btn:hover {
-            background: #ffe5f2;
-        }
-
-        .page-btn.active {
-            background: #ff4b8b;
-            color: #fff;
-            border-color: #ff4b8b;
-            transform: translateY(-1px);
-        }
-
-        .page-btn[disabled] {
-            opacity: 0.4;
-            cursor: default;
-            transform: none;
-        }
-
-        /* ===== 關於 / 聯絡 簡版 ===== */
-        .about-box, .contact-box {
-            background: #fff;
-            border-radius: 16px;
-            padding: 18px;
-            box-shadow: 0 5px 12px rgba(0,0,0,0.04);
-            font-size: 14px;
-        }
-
-        .about-list {
-            margin-left: 18px;
-            margin-top: 6px;
-        }
-
-        .about-list li {
-            margin-bottom: 4px;
-        }
-
-        .contact-box p {
-            font-size: 13px;
-        }
-
-        footer {
-            background: #ffe6f4;
-            padding: 14px 20px;
+        h1 {
             text-align: center;
-            font-size: 12px;
-            color: #777;
+            margin-top: 24px;
         }
 
-        /* ===== RWD ===== */
-        @media (max-width: 768px) {
-            .hero-inner {
-                grid-template-columns: 1fr;
-            }
+        table {
+            border-collapse: collapse;
+            margin: 24px auto;
+            background-color: #faedcd;
+        }
 
-            nav ul {
-                gap: 10px;
-                font-size: 13px;
-            }
+        th, td {
+            border: 1px solid #000;
+            width: 60px;
+            height: 40px;
+            text-align: center;
+        }
 
-            .product-toolbar {
-                align-items: flex-start;
-            }
+        /* 客製化紅色方框核取方塊 */
+        label.checkbox {
+            position: relative;
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: 2px solid #e76f51; /* 紅橘色外框 */
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+
+        /* 真正的 checkbox 隱藏，但還是可點擊 */
+        label.checkbox input {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        /* 內部用 span 來畫勾勾 */
+        label.checkbox span {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 有勾選時顯示 ✔ */
+        label.checkbox input:checked + span::after {
+            content: "✔";
+            position: absolute;
+            left: 1px;
+            top: -4px;
+            font-size: 18px;
+            color: #e76f51;
         }
     </style>
 </head>
 <body>
+    <h1>方框打勾表格示範</h1>
 
-    <!-- 導覽列 -->
-    <header>
-        <div class="nav-container">
-            <div class="logo">
-                <div class="logo-icon">♡</div>
-                <span>婉瑜的 Kitty 小舖</span>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#products">全部 Kitty</a></li>
-                    <li><a href="#about">關於小舖</a></li>
-                    <li><a href="#contact">聯絡我</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero 區 -->
-    <section class="hero">
-        <div class="hero-inner">
-            <div class="hero-text">
-                <h1>婉瑜的 Kitty 小舖</h1>
-                <p>
-                    這裡整理了我收藏的 Kitty 娃娃，一共 100 隻。
-                    為了讓老師看得舒服，也讓自己當老闆過過癮：一次顯示 20 隻，還可以依照價格排序。
-                </p>
-                <div class="hero-tags">
-                    <span class="tag">一頁 20 隻</span>
-                    <span class="tag">共 5 頁</span>
-                    <span class="tag">可依價格排序</span>
-                </div>
-                <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
-                    逛逛所有 Kitty 娃娃
-                </button>
-            </div>
-
-            <div class="hero-illustration">
-                <div class="hero-illustration-inner">
-                    這裡以後可以放一張<br>「Kitty 娃娃合照」的圖片
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 主要內容 -->
-    <main>
-
-        <!-- 商品區：排序 + 分頁 -->
-        <section id="products">
-            <h2>全部 Kitty 娃娃</h2>
-            <p class="section-intro">
-                共 100 個 Kitty，示範「一頁 20 個」＋「可以依價格排序」。<br>
-                之後你可以把每一隻改成自己真正收藏的娃娃名稱與價格。
-            </p>
-
-            <div class="product-toolbar">
-                <div class="product-count" id="productCountText">
-                    共 0 個商品 · 第 1 / 5 頁
-                </div>
-                <div class="sort-wrapper">
-                    <span>排序方式：</span>
-                    <select id="sortSelect">
-                        <option value="default">預設順序</option>
-                        <option value="price-asc">價格：低 → 高</option>
-                        <option value="price-desc">價格：高 → 低</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="product-grid" id="productGrid">
-                <!-- JS 會把商品卡片插進來 -->
-            </div>
-
-            <div class="pagination" id="pagination">
-                <!-- JS 產生分頁按鈕 -->
-            </div>
-        </section>
-
-        <!-- 關於區塊（簡版） -->
-        <section id="about">
-            <h2>關於小舖</h2>
-            <div class="about-box">
-                <p>
-                    「婉瑜的 Kitty 小舖」原本只是網頁設計課的作業主題，
-                    想說既然要做網站，不如直接拿自己最喜歡的東西：Kitty 娃娃。
-                </p>
-                <ul class="about-list">
-                    <li>主題：Kitty 娃娃收藏展示＆模擬販售頁面</li>
-                    <li>版面：一頁式網站，商品區有排序與分頁</li>
-                    <li>技術：純 HTML + CSS + JavaScript（不用框架）</li>
-                    <li>特色：可以一眼看到「一頁 20 個、共五頁」的作業需求有做到</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- 聯絡區（示意） -->
-        <section id="contact">
-            <h2>聯絡我</h2>
-            <div class="contact-box">
-                <p>
-                    如果你是老師：<br>
-                    歡迎在作業回饋裡給我建議，哪裡可以寫得更好、排版更完整。<br><br>
-                    如果你是路過的朋友：<br>
-                    這個網站目前主要是作業示意，真的要賣 Kitty 的話，之後可以再加上購物車、結帳等功能。
-                </p>
-            </div>
-        </section>
-
-    </main>
-
-    <footer>
-        本網站為「網頁設計課程」作業示意，Kitty 角色版權為原公司所有。
-    </footer>
-
-    <!-- ================== JS：商品資料 + 排序 + 分頁 ================== -->
-    <script>
-        // 一頁顯示幾個 Kitty & 總頁數
-        const ITEMS_PER_PAGE = 20;
-        const TOTAL_ITEMS = 100; // 共 100 隻，剛好 5 頁（100 / 20）
-
-        const productGrid = document.getElementById("productGrid");
-        const pagination = document.getElementById("pagination");
-        const sortSelect = document.getElementById("sortSelect");
-        const productCountText = document.getElementById("productCountText");
-
-        let currentPage = 1;
-        let currentSort = "default";
-
-        // 建立假資料：100 個 Kitty
-        // 之後你可以改成自己真實的娃娃名稱 / 價格
-        let kittyData = Array.from({ length: TOTAL_ITEMS }, function(_, index) {
-            const id = index + 1;
-
-            // 給個好記的假價格：介於 200 ~ 1190 之間
-            const price = 200 + (index % 20) * 50;
-
-            // 分類用來顯示小標籤
-            let tag;
-            if (id <= 20) {
-                tag = "經典款";
-            } else if (id <= 40) {
-                tag = "季節限定";
-            } else if (id <= 60) {
-                tag = "睡衣系列";
-            } else if (id <= 80) {
-                tag = "工作系列";
-            } else {
-                tag = "收藏家推薦";
-            }
-
-            return {
-                id: id,
-                name: "Kitty 娃娃 #" + id,
-                price: price,
-                tag: tag,
-                // 為了可以恢復「預設順序」
-                originalIndex: index
-            };
-        });
-
-        // 依現在的排序方式，回傳新的陣列
-        function getSortedData() {
-            const dataCopy = kittyData.slice(); // 複製一份
-
-            if (currentSort === "price-asc") {
-                dataCopy.sort(function(a, b) {
-                    return a.price - b.price; // 小 → 大
-                });
-            } else if (currentSort === "price-desc") {
-                dataCopy.sort(function(a, b) {
-                    return b.price - a.price; // 大 → 小
-                });
-            } else {
-                // 回到原本順序（依 originalIndex 排）
-                dataCopy.sort(function(a, b) {
-                    return a.originalIndex - b.originalIndex;
-                });
-            }
-
-            return dataCopy;
-        }
-
-        // 渲染商品卡片（依目前頁數 ＆ 排序）
-        function renderProducts() {
-            const sorted = getSortedData();
-
-            const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-            const endIndex = startIndex + ITEMS_PER_PAGE;
-            const itemsThisPage = sorted.slice(startIndex, endIndex);
-
-            // 清空舊的
-            productGrid.innerHTML = "";
-
-            itemsThisPage.forEach(function(item) {
-                const card = document.createElement("article");
-                card.className = "product-card";
-
-                card.innerHTML = `
-                    <div class="product-img-wrapper">
-                        <!-- 之後可以改成 <img src="images/kitty${item.id}.jpg" alt="${item.name}"> -->
-                        ${item.name} 圖片示意
-                    </div>
-                    <div class="product-title">${item.name}</div>
-                    <div class="product-meta">
-                        <span class="product-price">$ ${item.price}</span>
-                        <span class="product-tag">${item.tag}</span>
-                    </div>
-                `;
-
-                productGrid.appendChild(card);
-            });
-
-            const totalPages = Math.ceil(TOTAL
+    <table>
+        <tbody>
+            <!-- 想多幾列就複製 tr 這一行 -->
+            <tr>
+                <td><label class="checkbox"><input type="checkbox"><span></span></label></td>
+                <td><label class="checkbox"><input type="checkbox"><span></span></label></td>
+                <td><label class="checkbox"><input type="checkbox"><span></span></label></td>
+                <td><label class="checkbox"><input type="checkbox"><span></span></label></td>
+                <td><label class="checkbox"><input type="checkbox"><span></span></label></td>
+            </tr>
+            <tr>
+                <td><label class="checkbox"><input type="checkbox"><span></span></label></td>
+                <td><label class="checkbox"><input type="checkbox"><span></span></label></td>
+                <td><label class="checkbox"><input type="checkbox"><span></span></label></td>
+                <td><label class="checkbox"><input type="checkbox"><span></span></label></td>
+                <td><label class="checkbox"><input type="checkbox"><span></span></label></td>
+            </tr>
+            <tr>
+                <td><label class="checkbox"><input type="checkbox"><span></span></label></td>
+                <td><label class="checkbox"><input type="checkbox"><span></span></label></td>
+                <td><label class="checkbox"><input type="checkbox"><span></span></label></td>
+                <td><label class="checkbox"><input type="checkbox"><span></span></label></td>
+                <td><label class="checkbox"><input type="checkbox"><span></span></label></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
