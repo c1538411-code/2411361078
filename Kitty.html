@@ -3,44 +3,33 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Kitty 小舖 ‧ 商品頁面</title>
+    <title>婉瑜的kitty小舖</title>
 
-    <!-- 跟老師一樣，用 Bootstrap 5 CDN -->
+    <!-- Bootstrap 5（老師教的 CDN 寫法） -->
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
 
     <style>
-        /* 和老師示範一樣：所有 col* 的欄位上色＋邊框，方便看排版 */
+        /* 和老師示範一樣：所有 class 以 col 開頭的欄位都有底色和邊框 */
         div[class^="col"] {
             background-color: #FDEFF7;
             border: 0.5px solid purple;
         }
 
         body {
-            font-family: "微軟正黑體", "標楷體", system-ui, sans-serif;
-            background-color: #FFF7FB;
+            font-family: "微軟正黑體", "標楷體", sans-serif;
         }
 
         h1 {
-            font-size: 28px;
-            font-style: italic;
-            margin: 8px 0;
-        }
-
-        h2 {
-            font-size: 20px;
-            margin: 8px 0;
+            font-size: 26px;
+            margin: 6px 0;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
             background-color: #FFFFFF;
-        }
-
-        table caption {
-            font-weight: bold;
-            padding: 6px;
+            margin-top: 6px;
         }
 
         th, td {
@@ -53,142 +42,90 @@
             background-color: #FAD8E8;
         }
 
-        nav ul {
+        img {
+            display: block;
+            margin: 4px auto;
+        }
+
+        ul {
             margin: 0;
             padding-left: 20px;
-        }
-
-        nav li {
-            margin-bottom: 4px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #333333;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        .sidebar-text {
-            font-size: 14px;
-            line-height: 1.5;
-            margin-bottom: 8px;
-        }
-
-        footer p {
-            margin: 4px 0;
-            font-size: 14px;
         }
     </style>
 </head>
 <body>
-
     <div class="container">
-        <!-- 頁首（所有尺寸都佔滿一行） -->
+        <!-- 頁首 -->
         <div class="row">
             <div class="col-12">
-                <header>
-                    <h1>Kitty 小舖 ‧ 商品頁面</h1>
-                </header>
+                婉瑜的kitty小舖
             </div>
         </div>
 
         <!-- 導覽列 + 內容區 + 側邊欄 -->
         <div class="row">
-            <!-- 超小螢幕：col-12 全部直排 -->
-            <!-- 小螢幕：導覽列獨佔一行（col-sm-12） -->
+            <!-- 超小螢幕：全部 col-12 直排 -->
+            <!-- 小螢幕：導覽列佔一整列（col-sm-12） -->
             <!-- 中螢幕：1 : 3 : 2 = 2 : 6 : 4 -->
             <div class="col-12 col-sm-12 col-md-2">
-                <nav>
-                    <h2>導覽列</h2>
-                    <ul>
-                        <li><a href="#">首頁</a></li>
-                        <li><a href="#">全部商品</a></li>
-                        <li><a href="#">特價區</a></li>
-                        <li><a href="#">關於小舖</a></li>
-                    </ul>
-                </nav>
+                導覽列
+                <ul>
+                    <li>首頁</li>
+                    <li>商品列表</li>
+                    <li>關於小舖</li>
+                </ul>
             </div>
 
             <div class="col-12 col-sm-8 col-md-6">
-                <main>
-                    <h2>Kitty 商品列表</h2>
-                    <table frame="border" rules="all">
-                        <caption>Kitty 小舖商品一覽</caption>
-                        <thead>
-                            <tr>
-                                <th>編號</th>
-                                <th>商品名稱</th>
-                                <th>分類</th>
-                                <th>價格</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>001</td>
-                                <td>經典 Kitty 絨毛娃娃</td>
-                                <td>娃娃</td>
-                                <td>390</td>
-                            </tr>
-                            <tr>
-                                <td>002</td>
-                                <td>粉紅蝴蝶結抱枕</td>
-                                <td>抱枕</td>
-                                <td>520</td>
-                            </tr>
-                            <tr>
-                                <td>003</td>
-                                <td>Kitty 馬克杯</td>
-                                <td>杯子</td>
-                                <td>280</td>
-                            </tr>
-                            <tr>
-                                <td>004</td>
-                                <td>Kitty 文具小組合</td>
-                                <td>文具</td>
-                                <td>180</td>
-                            </tr>
-                            <tr>
-                                <td>005</td>
-                                <td>Kitty 鑰匙圈吊飾</td>
-                                <td>配件</td>
-                                <td>120</td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td colspan="4">※ 價格僅供課堂作業示範，非實際販售。</td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </main>
+                婉瑜的kitty商品區
+
+                <!-- ✅ 帶入你那張 Kitty 小舖的圖片 -->
+                <p>小舖展示圖：</p>
+                <img src="kittyshop.png" width="100%" alt="婉瑜的kitty小舖場景">
+
+                <!-- 商品表格（老師教的 table 寫法） -->
+                <p>商品資訊表：</p>
+                <table frame="border" rules="all">
+                    <tr>
+                        <th>編號</th>
+                        <th>商品名稱</th>
+                        <th>價格</th>
+                    </tr>
+                    <tr>
+                        <td>001</td>
+                        <td>經典 Kitty 絨毛娃娃</td>
+                        <td>390</td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>粉紅蝴蝶結抱枕</td>
+                        <td>520</td>
+                    </tr>
+                    <tr>
+                        <td>003</td>
+                        <td>Kitty 馬克杯</td>
+                        <td>280</td>
+                    </tr>
+                </table>
             </div>
 
             <div class="col-12 col-sm-4 col-md-4">
-                <aside>
-                    <h2>側邊欄</h2>
-                    <p class="sidebar-text">
-                        這裡是示意用側邊欄：<br>
-                        ・本頁為 Bootstrap 排版作業<br>
-                        ・主題：Kitty 小舖商品<br>
-                        ・練習中螢幕 1:3:2、<br>
-                        　 小螢幕 2:1 版面
-                    </p>
-                </aside>
+                側邊欄
+                <p>
+                    這一頁是「婉瑜的kitty小舖」商品頁面，<br>
+                    練習老師教的 Bootstrap 排版：<br>
+                    超小螢幕直排、小螢幕 2:1、<br>
+                    中螢幕 1:3:2。
+                </p>
             </div>
         </div>
 
-        <!-- 頁尾（所有尺寸都佔滿一行） -->
+        <!-- 頁尾 -->
         <div class="row">
             <div class="col-12">
-                <footer>
-                    <p>頁尾 ‧ Kitty 小舖 ｜ 僅供網頁設計課程練習使用</p>
-                </footer>
+                頁尾：婉瑜的kitty小舖
             </div>
         </div>
     </div>
-
 </body>
 </html>
