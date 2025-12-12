@@ -1,21 +1,131 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>profile.html</title>
-        <style>
-            h1 {font-size: 30px; color: blue;}
-        </style>
-         </head>
-    
-         <body>
-             <div>
-                <h1>王小明</h1>
-                 <p>我是一名熱愛設計的學生。<br>
-                    <br>
-                喜歡探索前端技術與藝術創作。<br></p>
-    <hr>
-    <i><a href="mailto:c1538411@gmail.com">聯絡我</a></i><br>
-         </div>
-        </body>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>婉瑜的kitty小舖</title>
+
+    <!-- Bootstrap 5（老師教的 CDN 寫法） -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+
+    <style>
+        /* 和老師示範一樣：所有 class 以 col 開頭的欄位都有底色和邊框 */
+        div[class^="col"] {
+            background-color: #FDEFF7;
+            border: 0.5px solid purple;
+        }
+
+        body {
+            font-family: "微軟正黑體", "標楷體", sans-serif;
+        }
+
+        h1 {
+            font-size: 26px;
+            margin: 6px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #FFFFFF;
+            margin-top: 6px;
+        }
+
+        th, td {
+            border: 1px solid #999;
+            padding: 4px 6px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #FAD8E8;
+        }
+
+        img {
+            display: block;
+            margin: 4px auto;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 頁首 -->
+        <div class="row">
+            <div class="col-12">
+                婉瑜的kitty小舖
+            </div>
+        </div>
+
+        <!-- 導覽列 + 內容區 + 側邊欄 -->
+        <div class="row">
+            <!-- 超小螢幕：全部 col-12 直排 -->
+            <!-- 小螢幕：導覽列佔一整列（col-sm-12） -->
+            <!-- 中螢幕：1 : 3 : 2 = 2 : 6 : 4 -->
+            <div class="col-12 col-sm-12 col-md-2">
+                導覽列
+                <ul>
+                    <li>首頁</li>
+                    <li>商品列表</li>
+                    <li>關於小舖</li>
+                </ul>
+            </div>
+
+            <div class="col-12 col-sm-8 col-md-6">
+                婉瑜的kitty商品區
+
+                <!-- ✅ 帶入你那張 Kitty 小舖的圖片 -->
+                <p>小舖展示圖：</p>
+                <img src="kittyshop.png" width="100%" alt="婉瑜的kitty小舖場景">
+
+                <!-- 商品表格（老師教的 table 寫法） -->
+                <p>商品資訊表：</p>
+                <table frame="border" rules="all">
+                    <tr>
+                        <th>編號</th>
+                        <th>商品名稱</th>
+                        <th>價格</th>
+                    </tr>
+                    <tr>
+                        <td>001</td>
+                        <td>經典 Kitty 絨毛娃娃</td>
+                        <td>390</td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>粉紅蝴蝶結抱枕</td>
+                        <td>520</td>
+                    </tr>
+                    <tr>
+                        <td>003</td>
+                        <td>Kitty 馬克杯</td>
+                        <td>280</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="col-12 col-sm-4 col-md-4">
+                側邊欄
+                <p>
+                    這一頁是「婉瑜的kitty小舖」商品頁面，<br>
+                    練習老師教的 Bootstrap 排版：<br>
+                    超小螢幕直排、小螢幕 2:1、<br>
+                    中螢幕 1:3:2。
+                </p>
+            </div>
+        </div>
+
+        <!-- 頁尾 -->
+        <div class="row">
+            <div class="col-12">
+                頁尾：婉瑜的kitty小舖
+            </div>
+        </div>
+    </div>
+</body>
 </html>
