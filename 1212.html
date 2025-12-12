@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>我的Bootstrap網頁</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <style>
+        div[class^="col"] {
+            background-color: #EBDEF0;
+            border: 0.5px solid purple;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 頁首 -->
+        <div class="row">
+            <div class="col-12">頁首</div>
+        </div>
+
+        <!-- 導覽列 + 內容區 + 側邊欄 -->
+        <div class="row">
+            <!-- 超小螢幕時會佔滿一整列，因此都寫 col-12 -->
+            <!-- 小螢幕時：導覽列獨佔一列（col-sm-12） -->
+            <!-- 中螢幕以上：1 : 3 : 2 = 2 : 6 : 4 -->
+            <div class="col-12 col-sm-12 col-md-2">導覽列</div>
+            <div class="col-12 col-sm-8  col-md-6">內容區</div>
+            <div class="col-12 col-sm-4  col-md-4">側邊欄</div>
+        </div>
+
+        <!-- 頁尾 -->
+        <div class="row">
+            <div class="col-12">頁尾</div>
+        </div>
+    </div>
+</body>
+</html>
